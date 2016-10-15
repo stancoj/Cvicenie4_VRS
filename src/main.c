@@ -95,6 +95,35 @@ int main(void)
 	  	//read ADC value
 
 	  	AD_value = ADC_GetConversionValue(ADC1);
+
+	  	if ((AD_value > 1900) && (AD_value < 2100))
+		{
+	  		GPIO_SetBits(GPIOA,GPIO_Pin_5);
+	  		for (i=0;i<(65326*0.5);i++){};
+	  		GPIO_ResetBits(GPIOA,GPIO_Pin_5);
+	  		for (i=0;i<(65326*0.5);i++){};
+		}
+	  	if ((AD_value > 2800) && (AD_value < 3000))
+		{
+			GPIO_SetBits(GPIOA,GPIO_Pin_5);
+			for (i=0;i<65326;i++){};
+			GPIO_ResetBits(GPIOA,GPIO_Pin_5);
+			for (i=0;i<65326;i++){};
+		}
+	  	if ((AD_value > 3300) && (AD_value < 3550))
+		{
+			GPIO_SetBits(GPIOA,GPIO_Pin_5);
+			for (i=0;(i<65326*1.5);i++){};
+			GPIO_ResetBits(GPIOA,GPIO_Pin_5);
+			for (i=0;i<(65326*1.5);i++){};
+		}
+	  	if ((AD_value > 3550) && (AD_value < 3750))
+		{
+			GPIO_SetBits(GPIOA,GPIO_Pin_5);
+			for (i=0;i<(65326*2);i++){};
+			GPIO_ResetBits(GPIOA,GPIO_Pin_5);
+			for (i=0;i<(65326*2);i++){};
+		}
   }
   return 0;
 }
